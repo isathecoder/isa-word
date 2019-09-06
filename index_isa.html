@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <title>isas world</title>
+    <!-- Link to the last version of BabylonJS -->
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <!-- Link to the last version of BabylonJS loaders to enable loading filetypes such as .gltf -->
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <!-- Link to pep.js to ensure pointer events work consistently in all browsers -->
+    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+</head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+</body> 
+<style>
+    html, body {
+        overflow: hidden;
+        width   : 100%;
+        height  : 100%;
+        margin  : 0;
+        padding : 0;
+    }
+
+    #renderCanvas {
+        width   : 100%;
+        height  : 100%;
+        touch-action: none;
+    }
+</style>
+<script src="functions.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        // All the following code is entered here.
+        var canvas = document.getElementById('renderCanvas');
+        var engine = new BABYLON.Engine(canvas, true);
+        var createScene = function() {
+    // Create a basic BJS Scene object.
+    var scene = new BABYLON.Scene(engine);
+scene.gravity= new BABYLON.Vector3(0, -9.81, 0);
+   createCamera(scene,canvas)
+    // Create a basic light, aiming 0,1,0 - meaning, to the sky.
+    createLight(scene)
+createSphere(scene)
+    // Create a built-in "sphere" shape. 
+   
+
+    // Move the sphere upward 1/2 of its height.
+    
+    // Create a built-in "ground" shape.
+    var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:10, subdivisions: 2}, scene);
+var box1 = BABYLON.MeshBuilder.CreateBox("box1", {}, scene); // default box
+var box2 = BABYLON.MeshBuilder.CreateBox("box2", {}, scene); // default box
+var box3 = BABYLON.MeshBuilder.CreateBox("box3", {}, scene); // default box
+var box4 = BABYLON.MeshBuilder.CreateBox("box4", {}, scene); // default box
+box1.position.x=0
+box1.position.z=0
+box2.position.x=0
+box2.position.z=0
+box3.position.x=0
+box3.position.z=0
+box4.position.x=0
+box4.position.z=0
+var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
+box1.material=myMaterial
+box2.material=myMaterial
+box3.material=myMaterial
+box4.material=myMaterial
+var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+groundMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
+groundMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
+groundMaterial.diffuseColor = new BABYLON.Color3(.4, 1, 1);
+ground.material=groundMaterial
+scene.collisionsEnabled = true;
+ground.checkCollisions = true;
+box1.checkCollisions = true;
+box2.checkCollisions = true;
+box3.checkCollisions = true;
+box4.checkCollisions = true;
+
+
+    // Return the created scene.
+    return scene;
+}
+var scene = createScene();
+engine.runRenderLoop(function() {
+    scene.render();
+});
+window.addEventListener('resize', function() {
+    engine.resize();
+});
+    });
+</script>
+</html>
