@@ -33,3 +33,39 @@ sphereMaterial.diffuseColor = new BABYLON.Color3(1, 0, .5);
 sphere.material=sphereMaterial
 sphere.checkCollisions = true;
 }
+
+function createGround(scene){ 
+var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:10, subdivisions: 2}, scene);
+    var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+groundMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
+groundMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
+groundMaterial.diffuseColor = new BABYLON.Color3(.4, 1, 1);
+ground.material=groundMaterial
+ground.checkCollisions = true;
+}
+
+
+function createBox(scene){
+    
+
+var box1 = BABYLON.MeshBuilder.CreateBox("box1", {}, scene); // default box
+var box2 = BABYLON.MeshBuilder.CreateBox("box2", {}, scene); // default box
+var box3 = BABYLON.MeshBuilder.CreateBox("box3", {}, scene); // default box
+var box4 = BABYLON.MeshBuilder.CreateBox("box4", {}, scene); // default box
+box1.position.x=0
+box1.position.z=0
+box2.position.x=0
+box2.position.z=0
+box3.position.x=0
+box3.position.z=0
+box4.position.x=0
+box4.position.z=0
+box1.material=myMaterial
+box2.material=myMaterial
+box3.material=myMaterial
+box4.material=myMaterial
+box1.checkCollisions = true;
+box2.checkCollisions = true;
+box3.checkCollisions = true;
+box4.checkCollisions = true;
+}
