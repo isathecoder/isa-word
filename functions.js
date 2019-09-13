@@ -70,3 +70,10 @@ box2.checkCollisions = true;
 box3.checkCollisions = true;
 box4.checkCollisions = true;
 }
+
+function createModels(scene){
+    BABYLON.SceneLoader.ImportMesh("", "https://models.babylonjs.com/", "ufo.glb", scene, function (meshes) {          
+        scene.createDefaultCameraOrLight(true, true, true);
+        scene.createDefaultEnvironment();
+        
+    });}
