@@ -35,7 +35,8 @@ sphere.checkCollisions = true;
 }
 
 function createGround(scene){
-var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:10, subdivisions: 2}, scene);
+var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:20
+    , subdivisions: 2}, scene);
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
 groundMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
 groundMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
@@ -78,6 +79,11 @@ function createModels(scene){
         meshes[0].position=new BABYLON.Vector3(1,2,3)
     });
      BABYLON.SceneLoader.ImportMesh("", "https://models.babylonjs.com/", "shark.glb", scene, function (meshes) {          
+        scene.createDefaultCameraOrLight(true, true, true);
+        scene.createDefaultEnvironment();
+        meshes[0].position=new BABYLON.Vector3(3,1,2)
+    });
+    BABYLON.SceneLoader.ImportMesh("", "https://models.babylonjs.com/", "solar_system.glb", scene, function (meshes) {          
         scene.createDefaultCameraOrLight(true, true, true);
         scene.createDefaultEnvironment();
         meshes[0].position=new BABYLON.Vector3(3,1,2)
