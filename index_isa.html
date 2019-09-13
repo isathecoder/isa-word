@@ -12,7 +12,7 @@
 </head>
 <body>
     <canvas id="renderCanvas"></canvas>
-</body> 
+</body>
 <style>
     html, body {
         overflow: hidden;
@@ -42,17 +42,16 @@ scene.gravity= new BABYLON.Vector3(0, -9.81, 0);
     // Create a basic light, aiming 0,1,0 - meaning, to the sky.
     createLight(scene)
 createSphere(scene)
-    // Create a built-in "sphere" shape. 
-   
+    // Create a built-in "sphere" shape.
+
 
     // Move the sphere upward 1/2 of its height.
-    
+
     // Create a built-in "ground" shape.
       createGround(scene)
       // Create a built-in "boxes" shape.
       createBox(scene)
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
+
 scene.collisionsEnabled = true;
 
 
