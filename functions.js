@@ -15,12 +15,12 @@ camera.checkCollisions = true;
 }
 
 function createLight(scene){
-    
+
 var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(1,1,0), scene);
 }
 
 function createSphere(scene){
-    
+
  var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', {segments:16, diameter:2}, scene);
  sphere.position.y = 1;
      sphere.position.x = 0;
@@ -34,7 +34,7 @@ sphere.material=sphereMaterial
 sphere.checkCollisions = true;
 }
 
-function createGround(scene){ 
+function createGround(scene){
 var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:10, subdivisions: 2}, scene);
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
 groundMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
@@ -46,8 +46,9 @@ ground.checkCollisions = true;
 
 
 function createBox(scene){
-    
 
+  var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+  myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
 var box1 = BABYLON.MeshBuilder.CreateBox("box1", {}, scene); // default box
 var box2 = BABYLON.MeshBuilder.CreateBox("box2", {}, scene); // default box
 var box3 = BABYLON.MeshBuilder.CreateBox("box3", {}, scene); // default box
