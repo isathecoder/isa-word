@@ -8,7 +8,7 @@ camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
 
     // Attach the camera to the canvas.
     camera.attachControl(canvas, false);
-camera.checkCollisions = true;
+//camera.checkCollisions = true;
 
 
 
@@ -68,7 +68,8 @@ box2.material=myMaterial
 box3.material=myMaterial
 box4.material=myMaterial
 box1.checkCollisions = true;
-box2.checkCollisions = true;
+box2.checkCollisions = true;BABYLON.Animation.ANIMATIONTYPE_VECTOR3
+
 box3.checkCollisions = true;
 box4.checkCollisions = true;
 }
@@ -91,7 +92,7 @@ function createModels(scene){
     });}
 
 function animateSphere(sphere){
-    var animationSphere = new BABYLON.Animation("mySphere", "scaling.x", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+    var animationSphere = new BABYLON.Animation("mySphere", "scaling.y", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
     var keys = []
     keys.push({ frame: 0, value: 1 }); 
 keys.push({ frame: 20, value: 0.2 });
@@ -99,4 +100,23 @@ keys.push({ frame: 20, value: 0.2 });
 animationSphere.setKeys(keys);
 sphere.animations = []; 
 sphere.animations.push(animationSphere);
-}
+  var position = []; 
+
+  position.push({
+    frame: 0,
+    value: BABYLON.Vector3.Zero(),
+    outTangent: new BABYLON.Vector3(1, 1, 0)
+  });
+
+  position.push({
+    frame: 20,
+    inTangent: new BABYLON.Vector3(1, 0, 0),
+    value: new BABYLON.Vector3(1, 1, 1),
+    outTangent: new BABYLON.Vector3(-1, 0, 0)
+  });
+
+  position.push({
+    frame: 100,
+    inTangent: new BABYLON.Vector3(-1, 0, 0),
+    value: BABYLON.Vector3.Zero()
+  });}
