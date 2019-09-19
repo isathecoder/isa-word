@@ -35,7 +35,7 @@ sphere.checkCollisions = true;
 }
 
 function createGround(scene){
-var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:20
+var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:50
     , subdivisions: 2}, scene);
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
 groundMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
