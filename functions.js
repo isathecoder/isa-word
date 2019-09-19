@@ -32,7 +32,8 @@ sphereMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
 sphereMaterial.diffuseColor = new BABYLON.Color3(1, 0, .5);
 sphere.material=sphereMaterial
 sphere.checkCollisions = true;
-}
+animateSphere(sphere)
+scene.beginAnimation(sphere, 0, 100, true);}
 
 function createGround(scene){
 var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:10, width:50
@@ -88,3 +89,14 @@ function createModels(scene){
         scene.createDefaultEnvironment();
         meshes[0].position=new BABYLON.Vector3(3,1,2)
     });}
+
+function animateSphere(sphere){
+    var animationSphere = new BABYLON.Animation("mySphere", "scaling.x", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+    var keys = []
+    keys.push({ frame: 0, value: 1 }); 
+keys.push({ frame: 20, value: 0.2 });
+ keys.push({ frame: 100, value: 1 });
+animationSphere.setKeys(keys);
+sphere.animations = []; 
+sphere.animations.push(animationSphere);
+}
